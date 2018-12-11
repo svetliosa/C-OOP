@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <string>
 #include <vector>
 #include <list>
@@ -102,20 +102,20 @@ int main() {
 	s2.print();
 	s1.getoc();
 	s2.getoc();
-	cout<<"Ñðåäåí óñïåõ íà "<<s1.getname()<<": "<<s1.sruspeh()<<endl;
-	cout<<"Ñðåäåí óñïåõ íà "<<s2.getname()<<": "<<s2.sruspeh()<<endl;
-	cout<<"Áðîé ÷åòâîðêè íà "<<s1.getname()<<": "<<s1.broioc(4)<<endl;
-	cout<<"Áðîé ÷åòâîðêè íà "<<s2.getname()<<": "<<s2.broioc(4)<<endl;
-	if (s1.deloc(4))  cout << "Èìà èçòðèòè îöåíêè"<<endl;
-	else cout << "Íÿìà èçòðèòè îöåíêè"<<endl;
+	cout<<"Ð¡Ñ€ÐµÐ´ÐµÐ½ ÑƒÑÐ¿ÐµÑ… Ð½Ð° "<<s1.getname()<<": "<<s1.sruspeh()<<endl;
+	cout<<"Ð¡Ñ€ÐµÐ´ÐµÐ½ ÑƒÑÐ¿ÐµÑ… Ð½Ð° "<<s2.getname()<<": "<<s2.sruspeh()<<endl;
+	cout<<"Ð‘Ñ€Ð¾Ð¹ Ñ‡ÐµÑ‚Ð²Ð¾Ñ€ÐºÐ¸ Ð½Ð° "<<s1.getname()<<": "<<s1.broioc(4)<<endl;
+	cout<<"Ð‘Ñ€Ð¾Ð¹ Ñ‡ÐµÑ‚Ð²Ð¾Ñ€ÐºÐ¸ Ð½Ð° "<<s2.getname()<<": "<<s2.broioc(4)<<endl;
+	if (s1.deloc(4))  cout << "Ð˜Ð¼Ð° Ð¸Ð·Ñ‚Ñ€Ð¸Ñ‚Ð¸ Ð¾Ñ†ÐµÐ½ÐºÐ¸"<<endl;
+	else cout << "ÐÑÐ¼Ð° Ð¸Ð·Ñ‚Ñ€Ð¸Ñ‚Ð¸ Ð¾Ñ†ÐµÐ½ÐºÐ¸"<<endl;
 	s1.print();
-	if (s2.deloc(4))  cout << "Èìà èçòðèòè îöåíêè"<<endl;
-	else cout << "Íÿìà èçòðèòè îöåíêè"<<endl;
+	if (s2.deloc(4))  cout << "Ð˜Ð¼Ð° Ð¸Ð·Ñ‚Ñ€Ð¸Ñ‚Ð¸ Ð¾Ñ†ÐµÐ½ÐºÐ¸"<<endl;
+	else cout << "ÐÑÐ¼Ð° Ð¸Ð·Ñ‚Ñ€Ð¸Ñ‚Ð¸ Ð¾Ñ†ÐµÐ½ÐºÐ¸"<<endl;
 	s2.print();
-	if(s1.IsGood()) cout<<"Ñòóäåíòúò "<<s1.getname()<<": å äîáúð ñòóäåíò"<<endl;
-	else cout<<"Ñòóäåíòúò "<<s1.getname()<<": å ëîø ñòóäåíò"<<endl;
-	if(s2.IsGood()) cout<<"Ñòóäåíòúò "<<s2.getname()<<": å äîáúð ñòóäåíò"<<endl;
-	else cout<<"Ñòóäåíòúò "<<s2.getname()<<": å ëîø ñòóäåíò"<<endl;
+	if(s1.IsGood()) cout<<"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ÑŠÑ‚ "<<s1.getname()<<": Ðµ Ð´Ð¾Ð±ÑŠÑ€ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚"<<endl;
+	else cout<<"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ÑŠÑ‚ "<<s1.getname()<<": Ðµ Ð»Ð¾Ñˆ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚"<<endl;
+	if(s2.IsGood()) cout<<"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ÑŠÑ‚ "<<s2.getname()<<": Ðµ Ð´Ð¾Ð±ÑŠÑ€ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚"<<endl;
+	else cout<<"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ÑŠÑ‚ "<<s2.getname()<<": Ðµ Ð»Ð¾Ñˆ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚"<<endl;
 	
 
 	list<student> gr;
@@ -144,7 +144,7 @@ int main() {
 		it++;
 	}
 	srr=sum/gr.size();
-	cout<<"Ñðåäíèÿ óñïåõ íà ãðóïàòà å: "<<srr<<endl;
+	cout<<"Ð¡Ñ€ÐµÐ´Ð½Ð¸Ñ ÑƒÑÐ¿ÐµÑ… Ð½Ð° Ð³Ñ€ÑƒÐ¿Ð°Ñ‚Ð° Ðµ: "<<srr<<endl;
 
 
 
@@ -159,7 +159,7 @@ int main() {
 	it=gr.begin();
 	while(it!=gr.end()){
         if(max==(*it).sruspeh()){
-            cout<<"Ñòóäåíòúò ñ íàé-âèñîê óñïåõ å:"<<(*it).getname()<<endl;
+            cout<<"Ð¡Ñ‚ÑƒÐ´ÐµÐ½Ñ‚ÑŠÑ‚ Ñ Ð½Ð°Ð¹-Ð²Ð¸ÑÐ¾Ðº ÑƒÑÐ¿ÐµÑ… Ðµ:"<<(*it).getname()<<endl;
 		}
         it++;
     }
@@ -176,7 +176,7 @@ int main() {
 		}
 		it++;
 	}
-	cout<<"Áðîÿò íà ñòóäåíòèòå, êîèòî èìàò ïîïðàâèòåëåí å: "<<br<<endl;
+	cout<<"Ð‘Ñ€Ð¾ÑÑ‚ Ð½Ð° ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¸Ñ‚Ðµ, ÐºÐ¾Ð¸Ñ‚Ð¾ Ð¸Ð¼Ð°Ñ‚ Ð¿Ð¾Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÐµÐ»ÐµÐ½ Ðµ: "<<br<<endl;
 	it=gr2.begin();
 	while(it!=gr2.end()){
 		(*it).print();
@@ -185,7 +185,7 @@ int main() {
 
 
 
-	cout<<"Áðîÿò íà ñòóäåíòèòå, êîèòî èìàò ïîïðàâèòåëåí å: "<<br<<endl;
+	cout<<"Ð‘Ñ€Ð¾ÑÑ‚ Ð½Ð° ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¸Ñ‚Ðµ, ÐºÐ¾Ð¸Ñ‚Ð¾ Ð¸Ð¼Ð°Ñ‚ Ð¿Ð¾Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÐµÐ»ÐµÐ½ Ðµ: "<<br<<endl;
 	it=gr2.begin();
 	while(it!=gr2.end()){
 		(*it).operator<<(cout);
