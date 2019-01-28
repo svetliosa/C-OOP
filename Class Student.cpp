@@ -1,59 +1,75 @@
-#include <iostream>
-#include <string>
+#include <iostream>;
+#include <string>;
 #include <fstream>
 using namespace std;
 
-enum Gender { male, female, unknown };
-
 class Person{
 protected:
-	string m_strName;
-	string m_strId;
-	Gender m_eGender;
-
+	string name;
+	string id;
 public:
-	Person(string strName,string strId,Gender from){
-		m_strName=strName;
-		m_strId=strId;
-		m_eGender=from;
+
+	Person(){
+		name="unknown";
+		id="unknown";
 	}
 
-	string GetName(){
-		return m_strName;
+	Person(const string name,const string id){
+		this->name=name;
+		this->id=id;
 	}
 
-	string GetId(){
-		return m_strId;
+	Person(const Person &pp){
+		name=pp.name;
+		id=pp.id;
 	}
 
-	ostream& output(ostream& toStream){
-		toStream<<"Person Name: "<<m_strName<<endl;
-		toStream<<"Person ID: "<<m_strId<<endl;
-		switch(m_eGender){
-		case male:
-			toStream<<"Gender: "<<"Male"<<endl;
-			break;
-		case female:
-			toStream<<"Gender: "<<"Female"<<endl;
-			break;
-		default:
-			toStream<<"Gender: "<<"Unknown"<<endl;
-		}
+	void set_Person(string name,string id){
+		this->name=name;
+		this->id=id;
+	}
+
+
+	string Get_name(){
+		return name;
+	}
+
+	string Get_id(){
+		return id;
+	}
+
+	bool operator <(const Person&obj){
+		return id<obj.id;
+	}
+
+	bool operator == (const Person& obj){
+		return id==obj.id;
+	}
+
+	friend ostream& operator<<(ostream& toStream, const Person& obj){
+		toStream<<"Name: "<<obj.name<<endl;
+		toStream<<"Id: "<<obj.id<<endl;
 		return toStream;
 	}
 
-	int ValidatePIN()
+	friend istream& operator >>(istream& fromStream, Person& obj){
+		fromStream>>obj.name;
+		fromStream>>obj.id;
+		return fromStream;
+	}
+
+	int ValidateID()
 	{
 		bool flag=false;
-		int len=m_strId.size();
+		int len=id.size();
 		if(len==10)
 		{
 			flag=true;
 		}
 		else flag=false;
-		string year = m_strId.substr (0,2);
-		string month = m_strId.substr (2,2);
-		string day = m_strId.substr (4,2);
+		string year = id.substr (0,2);
+		string month = id.substr (2,2);
+		string day = id.substr (4,2);
 		int intyear = stoi(year);
 		int intmonth = stoi(month);
 		int intday = stoi(day);
@@ -84,8 +100,8 @@ public:
 
 	void age()
 	{
-		string year = m_strId.substr (0,2);
-		string month = m_strId.substr (2,2);	
+		string year = id.substr (0,2);
+		string month = id.substr (2,2);	
 		int intyear = stoi(year);
 		int intmonth = stoi(month);
 		if(intmonth>40)
@@ -97,130 +113,51 @@ public:
 		}
 		cout<<"Person is "<<2018-intyear<<" old"<<endl;
 	}
+
 };
 
 class Student:public Person{
 private:
-	string m_strFn;
-	string m_strSpec;
-
+	string spec;
+	string fn;
 public:
-	Student (string strName, string strId, Gender from, string strFn, string strSpec):Person(strName,strId,from)
-	{
-		m_strFn=strFn;
-		m_strSpec=strSpec;
-	}
-
-	string GetFn(){
-		return m_strFn;
-	}
-
-	string GetSpec(){
-		return m_strSpec;
+	Student(string spec, string fn,string name, string id):Person(name,id){
+		this->spec=spec;
+		this->fn=fn;
 	}
 
 	ostream& output(ostream& toStream){
-		toStream<<"Person Name: "<<m_strName<<endl;
-		toStream<<"Person ID: "<<m_strId<<endl;
-		switch(m_eGender){
-		case male:
-			toStream<<"Gender: "<<"Male"<<endl;
-			break;
-		case female:
-			toStream<<"Gender: "<<"Female"<<endl;
-			break;
-		default:
-			toStream<<"Gender: "<<"Unknown"<<endl;
-		}
-		toStream<<"Student FN: "<<m_strFn<<endl;
-		toStream<<"Student Specialty: "<<m_strSpec<<endl;
+		toStream<<"Name: "<<name<<endl;
+		toStream<<"Id: "<<id<<endl;
+		toStream<<"Spec: "<<spec<<endl;
+		toStream<<"Fn: "<<fn<<endl;
+
 		return toStream;
-
 	}
 
-	int searchfn(string m_strarr[3]){
-		string fnsec;
-		bool flag=false;
-		cout<<"Search for a student"<<endl;
-		cout<<"FN: "<<endl;
-		getline(cin,fnsec);
-		for(int i=0;i<3;i++){
-			if(fnsec==m_strarr[i]){
-				flag=true;
-				break;
-			}
-			else{
-				flag=false;
-			}
-		}
-		return flag;
-	}
-
-	void file_print (string strName, string strId, Gender from, string strFn, string strSpec)
-	{
-		fstream file;
-		file.open("example.txt", ios::out);
-		file<<strName<<" "<<strId<<" "<<from<<" "<<strFn<<" "<<strSpec<<endl;
-		file.close();
-
-	}
 };
 
-
-
 void main(){
-	string m_strIme, m_strEgn;
-	Gender m_ePol=unknown;
-	int a;
-	string m_strFakN;
-	string m_strSpecialnost;
+	string strName,strId,strSpec,strFN;
 
-	Student s(m_strIme,m_strEgn,m_ePol,m_strFakN,m_strSpecialnost);
-	string m_strarr[3];
+	cout<<"Name ";
+	getline(cin,strName);
+	cout<<"ID ";
+	getline(cin,strId);
 
-	for(int i=0;i<3;i++){
-		cout<<"Name: ";
-		getline(cin,m_strIme);
-		cout<<"EGN: ";
-		getline(cin,m_strEgn);
-		cout<<"Gender: "<<endl<<"1. Male"<<endl<<"2. Female"<<endl;
-		cin>>a;
-		switch (a){
-		case 1: m_ePol=male; break;
-		case 2: m_ePol=female; break;
-		}
-
-		Person p(m_strIme,m_strEgn,m_ePol);
-		p.GetName();
-		p.GetId();
-		p.ValidatePIN();
-		if(p.ValidatePIN())
-		{
-			p.output(cout);
-			p.age();
-		}
-		else cout<<"Wrong PIN"<<endl;
-		cin.ignore();
-		cout<<"FN: ";
-		getline(cin,m_strFakN);
-		m_strarr[i]=m_strFakN;
-		cout<<"Specialty: ";
-		getline(cin,m_strSpecialnost);
-		
-		s.GetFn();
-		s.GetSpec();
-		s.output(cout);
-		s.file_print(m_strIme,m_strEgn,m_ePol,m_strFakN,m_strSpecialnost);
-	}
-	
-	if(s.searchfn(m_strarr))
-	{ 
-		cout<<"The student exists"<<endl;
-	}
-	else
+	Person p(strName,strId);
+	if(p.ValidateID())
 	{
-		cout<<"The student doesn`t exists"<<endl;
+		cout<<p;
+		p.age();
+		cout<<"Spec ";
+		getline(cin,strSpec);
+		cout<<"FN ";
+		getline(cin,strFN);
+		Student s(strSpec,strFN,strName,strId);
+		s.output(cout);
 	}
+	else cout<<"Wrong ID"<<endl;
 
 	system("pause");
 }
